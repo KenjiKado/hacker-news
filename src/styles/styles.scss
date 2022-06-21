@@ -1,0 +1,9 @@
+@import "variables";
+@import "fonts";
+@import "~scss-reset/_reset.scss";
+
+body {
+	font-family: "Lato", sans-serif;
+	font-size: 1em;
+	background-color: var(--color-blue-grey);
+}

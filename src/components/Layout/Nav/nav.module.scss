@@ -1,0 +1,44 @@
+.navbar {
+	padding: 0 20px;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	height: 100%;
+
+	li {
+		display: flex;
+		align-items: center;
+
+		&:after {
+			content: '';
+			width: 8px;
+			height: 8px;
+			margin: 0 15px;
+			border-radius: 50%;
+			background-color: var(--color-orange);
+		}
+
+		&:last-child {
+			&:after {
+				content: none;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+		color: var(--color-black);
+
+		&:hover {
+			text-decoration: none;
+			color: var(--color-orange);
+		}
+	}
+
+	.active {
+		color: var(--color-orange);
+	}
+}

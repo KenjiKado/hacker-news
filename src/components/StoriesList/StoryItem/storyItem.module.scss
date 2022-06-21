@@ -1,0 +1,163 @@
+.storyItem {
+	display: flex;
+	padding: 20px 30px;
+	border-bottom: 2px solid var(--color-blue-grey-darker);
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.loading {
+	position: relative;
+	height: 25px;
+	transition: background-color ease-in-out 0.1s;
+	animation: loading .7s infinite;
+	border-radius: 5px;
+
+	h3,
+	span {
+		display: none !important;
+	}
+}
+
+.ordinal {
+	font-size: 24px;
+	font-weight: 700;
+	color: var(--color-orange);
+
+	&.loading {
+		height: 40px;
+		width: 40px;
+	}
+}
+
+.itemContainer {
+	width: 100%;
+	padding: 0 20px;
+
+	header {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 10px;
+
+		&.loading {
+			width: 50%
+		}
+
+		h3 {
+			font-size: 20px;
+			font-weight: 500;
+			margin-right: 15px;
+		}
+
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: var(--color-black);
+			transition: all ease-out 0.2s;
+
+			&:hover {
+				color: var(--color-orange);
+			}
+		}
+	}
+
+	footer {
+		display: flex;
+		width: 100%;
+
+		&.loading {
+			width: calc(100% / 3);
+		}
+
+		span {
+			display: block;
+			font-size: 12px;
+			color: var(--color-grey);
+
+			&:after {
+				content: '|';
+				margin: 0 5px;
+			}
+
+			&:last-child {
+				&:after {
+					content: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.ordinal {
+		font-size: 20px;
+	}
+
+	.storyItem {
+		padding: 20px;
+	}
+
+	.itemContainer {
+		header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+}
+
+@media (max-width: 720px) {
+	.storyItem {
+		padding: 10px 20px;
+	}
+
+	.ordinal {
+		display: none;
+	}
+
+	.itemContainer {
+		padding: 0;
+
+		header {
+			h3 {
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.itemContainer {
+		footer {
+			flex-direction: column;
+
+			span {
+				margin-bottom: 5px;
+
+				&:after {
+					content: none;
+				}
+			}
+		}
+	}
+}
+
+@keyframes loading {
+	25% {
+		background: linear-gradient(90deg, var(--color-blue-grey) 0%, rgba(226, 232, 240, .75) 0%, rgba(#e2e8f0, .2) 100%);
+	}
+
+	50% {
+		background: linear-gradient(90deg, var(--color-blue-grey) 25%, rgba(226, 232, 240, .75) 50%, rgba(#e2e8f0, .2) 75%);
+	}
+
+	75% {
+		background: linear-gradient(90deg, var(--color-blue-grey) 50%, rgba(226, 232, 240, .75) 25%, rgba(#e2e8f0, .3) 50%);
+	}
+
+	100% {
+		background: linear-gradient(90deg, var(--color-blue-grey) 75%, rgba(226, 232, 240, .75) 25%, rgba(#e2e8f0, .3) 25%);
+	}
+}
